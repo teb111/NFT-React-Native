@@ -1,7 +1,7 @@
 import { View, Text, Image, TextInput } from 'react-native'
 import { COLORS, FONTS, SIZES, assets } from '../constants'
 
-const HomeHeader = () => {
+const HomeHeader = ({ onSearch }) => {
   return (
     <View
       style={{
@@ -64,6 +64,31 @@ const HomeHeader = () => {
         >
           Let's find a masterpeice
         </Text>
+      </View>
+      <View style={{ marginTop: SIZES.font }}>
+        <View
+          style={{
+            width: '100%',
+            borderRadius: SIZES.font,
+            backgroundColor: '#1a1a1a',
+            flexDirection: 'row',
+            alignItems: 'center',
+            paddingHorizontal: SIZES.font,
+            paddingVertical: SIZES.font - 2
+          }}
+        >
+          <Image
+            source={assets.search}
+            resizeMode='contain'
+            style={{ width: 20, height: 20, marginRight: SIZES.base }}
+          />
+          <TextInput
+            placeholder='Search Nfts'
+            style={{ flex: 1, color: 'white' }}
+            placeholderTextColor='white'
+            onChangeText={onSearch}
+          />
+        </View>
       </View>
     </View>
   )
